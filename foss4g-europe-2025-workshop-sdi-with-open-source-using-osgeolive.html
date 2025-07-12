@@ -1,0 +1,940 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Setting up a Spatial Data Infrastructure (SDI) with Open Source Software using OSGeoLive</title>
+
+        <meta name="description" content="Workshop at FOSS4G Europe 2025 Mostar (Bosnia-Herzegowina) Setting up a Spatial Data Infrastructure (SDI) with Open Source Software using OSGeoLive">
+        <meta name="author" content="Astrid Emde, OSGeo & some slides from other OSGeo members">    
+    
+        <link rel="stylesheet" href="_static/css/reveal.css">
+        <link rel="stylesheet" href="_static/css/theme/serif.css" id="theme">
+        <link rel="stylesheet" href="_static/lib/css/zenburn.css">
+        <link rel="stylesheet" href="_static/revealjs.css" type="text/css" />
+        <link rel="stylesheet" href="_static/reveal.js/css/theme/osgeo.css" type="text/css">
+
+        <link rel="shortcut icon" href="_static/favicon.ico"/>
+
+        <link href="https://fonts.googleapis.com/css?family=Sintony" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Miriam+Libre" rel="stylesheet">
+
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if(window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = '_static/css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="_static/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+
+
+          <!-- header & footer -->  
+          <div class="staticElements">
+           
+            <div class="headL">
+              <img src="img/foss4g2025/foss4g-europe-2025.png"></img>
+            </div> 
+            <div class="headR">
+              <img src="img/osgeo/osgeo_o_logo.png"></img>
+            </div>
+          
+            
+          <!-- Footer center -->
+          
+          <div class="footC">
+            <footnote>SDI with OSGeoLive - FOSS4G Europe 2025 Mostar Bosnia-Herzegowina</footnote>
+            </div>
+          </div>  
+
+      <div class="slides">
+
+<section>
+<h3>Setting up a Spatial Data Infrastructure (SDI) with Open Source Software using OSGeoLive</h3>
+
+    <p><small>Astrid Emde | Enock Seth Nyamador</small>
+    <small><a href="https://2025.europe.foss4g.org" title="FOSS4G Europe 2025 Mostar">FOSS4G Europe 2025 Mostar Bosnia-Herzegowina</a></small></p>
+<img src="img/foss4g2025/osgeolive_menu.png" height="450">
+</section>
+
+<section>
+<h2>SDI Workshop</h2>
+    <p>
+      <ul>
+        <li>What is a Spatial Data Infrastructure (SDI)</li>
+        <li>Components of an SDI</li>
+        <li>Data</li>
+        <li>Services & OGC Standards </li>
+        <li>Clients</li>
+        <li>Metadata</li>
+        <li>Get to know OSGeo Software</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Workshop with OSGeoLive</h2>
+OSGeoLive 16 (November 2023)
+ 
+    <p>
+      <ul>
+        <li><a href="http://live.osgeo.org" target="_blank">http://live.osgeo.org</a></li>
+        <li>Download Data & Presentation <small><a href="http://trac.osgeo.org/osgeolive/wiki/Live_GIS_Workshop_Install" target="_blank">http://trac.osgeo.org/osgeolive/wiki/Live_GIS_Workshop_Install</a></small></li>
+      </ul>
+    </p>
+<img src="img/foss4g2025/osgeolive_menu.png" height="300">
+</section>
+
+<section>
+<h2>What is a SDI?</h2>
+</section>
+
+<section>
+<h2>What is a SDI?</h2>
+<p>
+"A spatial data infrastructure (SDI) is a data infrastructure 
+implementing a framework of geographic data, metadata, 
+users and tools that are interactively connected in order to 
+use spatial data in an efficient and flexible way. Another 
+definition is "the technology, policies, standards, human 
+resources, and related activities necessary to acquire, 
+process, distribute, use, maintain, and preserve spatial 
+data".
+</p>
+<p>Source: Wikipedia <a href ="https://en.wikipedia.org/wiki/Spatial_data_infrastructure" target="_blank">https://en.wikipedia.org/wiki/Spatial_data_infrastructure </a></p>
+</section>
+
+<section>
+<h2>SDI</h2>
+    <p>
+      <ul>
+        <li>Data infrastructure that provides geographic data and metadata
+        <li>Data network to exchange data 
+        <li>Data producer and data user are connected via a physical network f.e internet / intranet it is accessible for several users
+        <li>Users can use different tools for different processes
+        <li>It helps you to make data accessible, maintainable and findable throughout your organization
+        <li>Increases efficiency and flexibility
+      </ul>
+    </p>
+</section>
+
+<!-- 
+<section>
+<h2>Clients Server</h2>
+From Geodatendienste im Internet (3. Auflage, KSt. GDI-DE)
+http://www.geoportal.de/SharedDocs/Downloads/DE/GDI-DE/Flyer-Broschueren/Leitfaden-Geodienste-im%20Internet.pdf?__blob=publicationFile
+Clients centralized
+Data storage
+Service
+Communication with the Clients
+</section>
+-->
+
+<section>
+<h2>SDI Components</h2>
+<!--
+file system
+database Spatial Services
+Provide data access
+    OGC Services
+WMS Web Map Service
+WFS Web Feature Service
+WCS Web Coverage Service
+WMC Web Map Context
+WPS Web Processing Service
+CSW Catalog Service Web
+& more
+   
+Client
+Search / View / 
+Download Data
+Browser
+Desktop GIS
+ 
+Edit data
+editors f.e. Desktop GIS
+command line tools 
+scripts
+    -->
+    <p>
+      <ul>  
+        <li>Exercise 1: Please assign Open Source Software to the components of a SDI. See <a href="https://live.osgeo.org" target="_blank">https://live.osgeo.org</a></li>
+      </ul>
+    </p>
+    <p>
+        <img src="img/foss4g2025/sdi_components.png" height="500">
+    </p>
+</section> 
+
+<section>
+<h2>SDI Components</h2>
+    <p>
+        <img src="img/foss4g2025/sdi_components_os.png" height="500">
+    </p>
+<!--
+file system
+database
+ESRI Shape 
+OGC GeoPackage
+PostgreSQL/PostGIS...
+Spatial Services
+Provide data access
+    OGC Services
+MapServer
+GeoServer
+deegree
+QGIS Server
+PyWPS
+GeoNetwork
+pycsw   
+Client
+Search / View / 
+Download DataBrowser: Mapbender,
+OpenLayer, 
+Leaflet, Cesium 
+DesktopGIS: QGIS, 
+GRASS GIS, Saga, 
+OpenJump, gvSig,
+Marble
+ 
+Edit dataeditors f.e. Desktop GIS
+QGIS, gvSIG, uDIG, 
+Saga, GRASS, OpenJump
+command line tools 
+ogr2ogr gdal shp2pgsql
+scripts f.e. python
+-->
+       
+</section>
+
+<section>
+<h2>Data - Status</h2>
+    <p>
+      <ul>  
+        <li>Users work with different data</li>
+        <li>Different formats</li>
+        <li>Different tools to view and edit</li>
+        <li>Data can be spread and copied </li>
+        <li>Data can have different versions that are in use</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Data</h2>
+    <h3>Goals</h3>
+      <ul>  
+        <li>Central data storage</li>
+        <li>Editing does not have to take place always in the central data storage, but define how to exchange</li>
+        <li>Easy import & export</li>
+        <li>Flexible visualisation with different tools</li>
+        <li>Data storage with defined access</li>
+        <li>Data storage with authentification/authorisation and multi user access</li>
+        <li>Data history</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Data</h2>
+    <h3>Goals</h3>
+First Goal: create your first data store
+</section>
+
+<section>
+<h2>Database</h2>
+<h3>PostgreSQL & PostGIS</h3>
+    <p>
+        <img src="img/foss4g2025/db_elefanten.png" height="400">
+    </p>
+
+    <p>
+      <ul>  
+        <li><a href="https://live.osgeo.org/en/overview/overview.html" target="_blank">https://live.osgeo.org/en/overview/overview.html</a></li>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>PostgreSQL/PostGIS</h2>
+    <p>
+      <ul>  
+        <li>Supported by several other programs and programming languages</li>
+        <li>Fast, powerful, reliable, robust, easy to maintain</li>
+        <li>PostGIS is an extension for PostgreSQL</li>
+        <li>Let PostGIS do the work - not your Desktop GIS</li>
+        <li>Follows standard - OGC Simple Feature Specification for SQL and ISO SQL/MM Specification</li>
+        <li>Provides many spatial functions</li>
+        <li>Control access to your data</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Exercise 2: Create Spatial Database in PostgreSQL</h2>
+
+    <p>
+      <ul>  
+        <li>Open Database Client pgAdmin 4 (PhpPgAdmin in the ISO)</li>
+        <li>Create database: context menu on database → new database → name <b>foss4g</b></li>
+        <li>Load postgis Extension</li>
+            <ul>
+                <li>Context menu on database foss4g → new object → new extension → name: <b>postgis</b></li>
+            </ul>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Data</h2>
+    <p>Goals
+      <ul>  
+        <li>First Goal: centralized data storage</li>
+        <li>Second Goal: Easy import & export of data</li>
+        <li>Third Goal: Flexible visualisation with different tools</li>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Exercise 3: Get to know QGIS</h2>
+    <h3>Load Natural Earth data (Shapes) in Desktop GIS QGIS</h3>
+    <p>
+      <ul>  
+        <li>Find the data at /home/user/data/natural_earth2/ne_10m_admin_1_states_provinces_shp.shp</li>
+        <li>Provinces of Bosnia-Herzegowina</li>
+        <li>Filter show only admin = 'Bosnia-Herzegowina'</li>
+        <li>Label with column <b>name</b></li>
+        
+      </ul>
+    </p>
+
+
+</section> 
+
+<section>
+<h2>Data import from QGIS to PostgreSQL</h2>
+    <p>You can import Shape to PostgreSQL via
+      <ul>  
+        <li>QGIS DB Manager</li>
+        <li>or</li>
+        <li>shp2pgsql</li>
+        <li>ogr2ogr</li>
+        <li>python</li>
+        <li>...</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Create a new PostgreSQL Connection in QGIS</h2>
+    <p>
+        <img src="img/foss4g2025/qgis_db_connection.png" height="500">
+    </p>
+</section>
+
+<section>
+<h2>QGIS DB Manager</h2>
+    <p>
+      <ul>  
+        <li>Easy Import / Export</li>
+        <li>Supports many data formats</li>
+        <li>Visualize your data</li>
+        <li>Show & edit table structure</li>
+        <li>Create index</li>
+        <li>Vacuum / Analyze</li>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>QGIS DB Manager Import</h2>
+    <p>
+        <img src="img/foss4g2025/qgis_db_manager_import.png" height="500">
+    </p> 
+</section>
+
+<section>
+<h2>Exercise 4: Import & Export</h2>
+    <p>
+      <ul>  
+        <li>Import provinces from Natural Earth data (only Bosnia-Herzegowina)</li>
+        <li>Import populated places from Natural Earth data (only Bosnia-Herzegowina)</li>
+        <li>Add the table from your database to your QGIS project (drag & drop) 
+        <li>Export: Save populated places as geopackage via DB Manager or via QGIS save as ...</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Data</h2>
+    <p>Goals
+      <ul>  
+        <li>First Goal: centralized data storage</li>
+        <li>Second Goal: Easy import & export of data</li>
+        <li>Third Goal: Flexible visualisation with different tools</li>
+        <li>Fourth Goal: Defined access to data</li>
+      </ul>
+    </p>
+</section> 
+
+</section>
+
+<section>
+<h2>PostgreSQL roles</h2>
+    <p>
+      <ul>  
+        <li>PostgreSQL has roles</li>
+        <ul>
+            <li>groups</li>
+            <li>User with login</li>
+        </ul>
+        <li>You can give access to databases, schema, tables, views … to roles</li>
+        <li>Write or read access</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Create roles in PostgreSQL</h2>
+    <p>
+      <ul>  
+        <li>Create role, create login role</li>
+        <li>Give read access to table places</li>
+        <li>Give write access to table countries</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Exercise 5: Control data access</h2>
+    <p>
+      <ul>  
+        <li>Create a role workshop_read and workshop_writer</li>
+        <li>Create a login role robert with a password and add to workshop_reader</li>
+        <li>Create a new login role wilma and add wilma to the workshop_writer role</li>
+        <li>Grant read access to table places to your new role workshop_reader</li>
+        <li>Grant write access to table countries to your new role workshop_writer</li>
+        <li>Try to access and edit via QGIS</li>
+</section>
+
+<section>
+<h2>Exercise 5: Control data access</h2>
+    <p>How it works...</p>
+    <p>
+        <pre><code class="sql">
+CREATE ROLE workshop_reader;
+
+CREATE ROLE workshop_writer;
+
+
+CREATE ROLE robert WITH LOGIN PASSWORD 'foss4g';
+
+GRANT workshop_reader TO robert;
+
+
+CREATE ROLE wilma WITH LOGIN PASSWORD 'foss4g';
+
+GRANT workshop_writer TO wilma;
+        </code></pre>
+    </p>
+</section> 
+
+<section>
+<h2>Exercise 5: Control data access</h2>
+    <p>How it works...</p>
+    <p>
+        <pre><code class="sql">
+GRANT SELECT ON places to workshop_reader;
+
+-- change to user robert
+Select * from places;
+
+-- change to user user
+GRANT ALL ON countries to workshop_writer;
+GRANT USAGE ON SEQUENCE countries_gid_seq TO workshop_writer;
+
+-- change to user wilma
+Select * from countries;
+Update countries set name = 'TEST' WHERE name = 'Bosnia-Herzegowina';
+         </code></pre>
+    </p>
+</section> 
+
+<section>
+<h2>Service</h2>
+    <p>
+        <img src="img/foss4g2025/request_response.png" height="500">
+    </p> 
+<!--
+file system
+database
+Spatial Services
+Provide data access
+OGC Services
+Edit data
+editors f.e. Desktop GIS
+WMS Web Map Service
+WFS Web Feature Service
+WCS Web Coverage Service
+WMC Web Map Context
+WPS Web Processing Service
+CSW Catalog Service Web
+& more
+Client
+Search / View /
+Download Data
+Browser
+Desktop GIS
+command line tools
+scripts
+        
+      </ul>
+    </p>-->
+</section> 
+
+
+<section>
+<h2>Provide Data via OGC Services</h2>
+    <p>Goals
+      <ul>  
+        <li>Provide Data in the web - Intra- or Internet</li>
+        <li>Provide data via standards that many tools support</li>
+        <li>Provide INSPIRE conform Services in Europe</li>
+        <li>OGC WMS Web Map Service – show data and get information (advantage: styling is already defined)</li>
+        <li>OGC WFS Web Feature Service - download service, provide data, edit data</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2></h2>
+    <p>
+        <img src="img/foss4g2025/ogc_web_service_framework.png" height="500">
+    </p> 
+    <a href="https://live.osgeo.org/archive/10.5/en/standards/standards.html" target="_blank">https://live.osgeo.org/archive/10.5/en/standards/standards.html</a>
+</section>
+
+<section>
+<h2>OSGeo Software with OGC WMS Support</h2>
+
+    <p>OGC WMS – map service, provide maps as raster, information as html, plain text, GML</p>
+    <p>
+      <ul>  
+        <li>MapServer</li>
+        <li>GeoServer</li>
+        <li>QGIS Server</li>
+        <li>deegree</li>
+        <li>MapProxy</li>   
+       </ul>
+    </p>
+</section>
+
+<section>
+<h2>OSGeo Software with OGC WFS Support</h2>
+    <p>OGC WFS – feature service, data access f.e. via GML</p>
+      <ul> 
+        <li>MapServer</li>
+        <li>GeoServer</li>
+        <li>QGIS Server</li>
+        <li>deegree</li>
+        <li>MapProxy</li>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Provide Data via OGC Services</h2>
+    <p>Goals
+      <ul>  
+        <li>First Goal: Provide Data in the web - Intra- or Internet</li>
+        <li>Provide data via standards that many tools support</li>
+        <li>OGC WMS Web Map Service – show data and get information (styling is already defined)</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>WMS example with QGIS Server</h2>
+  <p>Publish your data via QGIS Server as WMS
+      <ul>  
+        <li>Menu → Project → Project properties → OWS Server</li>
+        <li>Name and title, extent, layer access (make sure you saved the password for your database access)</li>
+        <li>GetCapabilities-Request <br><small><a href="http://localhost/cgi-bin/qgis_mapserv.fcgi?MAP=/usr/local/share/qgis/service_wms.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities" target="_blank">http://localhost/cgi-bin/qgis_mapserv.fcgi?MAP=/usr/local/share/qgis/service_wms.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</a></small></li></li>
+        
+      </ul>
+    </p>
+</section> 
+
+<!--
+
+<section>
+<h2>WMS Capabilities Document</h2>
+[img]
+</section>
+-->
+
+<section>
+<h2>Exercise 6: WMS example with QGIS Server</h2>
+  <p>Publish your data via QGIS Server as WMS
+      <ul>  
+        <li>Publish your data via QGIS Server as WMS</li>
+        <li>Create a WMS with two layers countries and places – style them nicely with labeling</li>
+        <li>Save your project at: /home/user/service_wms.qgs</li>
+        <li>Load your WMS in an empty QGIS project</li>
+        <li>Load also WMS <small><a href="http://localhost/cgi-bin/qgis_mapserv.fcgi?&MAP=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities">http://localhost/cgi-bin/qgis_mapserv.fcgi?&MAP=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</a></small></li>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Exercise 7: Load external Services to QGIS</h2>
+  <p>
+      <ul>  
+        <li>
+        <small><a href="http://localhost/cgi-bin/qgis_mapserv.fcgi?map=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities" target="_blank">http://localhost/cgi-bin/qgis_mapserv.fcgi?map=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</a></small></br></li>
+        <li><small>OSM WhereGroup <a href="http://osm-demo.wheregroup.com/service?REQUEST=GetCapabilities&Service=WMS&Version=1.3.0">http://osm-demo.wheregroup.com/service?REQUEST=GetCapabilities&Service=WMS&Version=1.3.0</a></small></li>
+        <li><small>TopPlus Open <a href="https://sgx.geodatenzentrum.de/wms_topplus_open?request=GetCapabilities&service=wms" target="_blank">https://sgx.geodatenzentrum.de/wms_topplus_open?request=GetCapabilities&service=wms</a></small></li>
+      <li><small>FOSS4G WMS<a href="https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities" target="_blank">https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities</a></small></li>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>How to spread your service in the web?</h2>
+  <p>
+      <ul>  
+        <li>Refer to your GetCapabilities-Urls</li>
+        <li>Add your GetCapabilities & Metadata in a Metadata catalog</li>
+        <li>Offer your WMS in WebGIS Client in a ready to use application for example OpenLayers, Leaflet, Mapbender, GeoMoose, MapStore, QGIS Map Client 2</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Provide Services with Leaflet</h2>
+  <p>
+    <ul> 
+        <li>Open the leaflet demo</li>
+        <li>Add things to it</li>
+        <ul>
+            <li>Bounding box</li>
+            <li>WMS SERVICE</li>
+        </ul>
+      </ul>
+    </p>
+    <p>
+        <img src="img/foss4g2025/leaflet.png" height="400">
+    </p>     
+</section> 
+
+<section>
+<h2>Exercise 8: Leaflet</h2>
+  <p>    </p>
+    <ul> 
+        <li>Copy paste leaflet files from /var/www → desktop</li>
+        <li>Fix libraries URLs</li>
+        <li>Fix coordinates to Mostar latitude 43.3441 longitude 17.7967</li>
+    </ul>
+    <p>
+        <pre><code class="sql">
+        var map = L.map('map').setView([43.3441,17.7967], 15);
+
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{}).addTo(map);
+        //In case we are offline, start TileStache to get a base layer
+        L.tileLayer('http://localhost:8012/example/{z}/{x}/{y}.png',{}).addTo(map);
+
+        var marker = L.marker([43.3441,17.7967]).addTo(map);
+
+        var circle = L.circle([43.3441,17.7967, 250, {
+           color: 'red',
+           fillColor: '#f03',
+           fillOpacity: 0.5
+        }).addTo(map);
+        
+        
+        var polygon = L.polygon([
+           [43.344,17.792],
+           [43.340,17.798],
+           [43.338,17.790]
+        ]).addTo(map);
+        
+        var popup = L.popup()
+           .setLatLng(43.343,17.797])
+           .setContent("FOSS4G Europe 2025 is here this year!")
+           .openOn(map);
+         </code></pre>
+    </p>
+
+</section> 
+
+<section>
+<h2>Exercise 9: Leaflet</h2>
+  <p>    </p>
+    <ul> 
+        <li>Add WMS service
+        <li>Add your QGIS server WMS to leaflet
+    </ul>
+    <p>
+        <pre><code class="sql">
+// add new layer from WMS service
+var topo = L.tileLayer.wms('http://ows.mundialis.de/services/service?', {
+    layers: 'TOPO-OSM-WMS'
+		}).addTo(map);
+
+// define basemaps
+var baseMaps = {
+    "OpenStreetMap": osm,
+    "OSM Topo": topo
+};
+// Add a layer control button
+var layerControl = L.control.layers(baseMaps).addTo(map);
+
+         </code></pre>
+    </p>
+</section> 
+
+<section>
+<h2>Provide Services in a Geoportal for example Mapbender</h2>
+  <p>    </p>
+    <ul> 
+        <li><a href="http://localhost/mapbender/" target="_blank">http://localhost/mapbender/</a></li>
+        <li>Login via: root / root</li>
+        <li>Provide Applications for different needs</li>
+      </ul>
+    </p>
+    <p>
+        <img src="img/foss4g2025/mapbender.png" height="400">
+    </p> 
+</section> 
+
+<section>
+<h2>Publish WMS in Mapbender</h2>
+  <p>    </p>
+    <ul> 
+        <li>Menu → New DataSource</li>
+        <li>Load GetCapabilities Url</li>
+      </ul>
+    </p>            
+</section>
+
+<section>
+    <h2>Exercise 9: Load WMS in Mapbender</h2>
+    <ul>
+        <li>Load your QGIS WMS and some other WMS in Mapbender</br></li>
+        <li><small><a href="http://localhost/cgi-bin/qgis_mapserv.fcgi?map=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities" target="_blank">http://localhost/cgi-bin/qgis_mapserv.fcgi?map=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</a></small></br></li>
+        <small><a href="http://localhost/cgi-bin/qgis_mapserv.fcgi?map=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities" target="_blank">http://localhost/cgi-bin/qgis_mapserv.fcgi?map=/usr/local/share/qgis/QGIS-NaturalEarth-Example.qgz&SERVICE=WMS&VERSION=1.3.0&REQUEST=GetCapabilities</a></small></br></li>
+        <li><small>OSM by WhereGroup<a href="http://osm-demo.wheregroup.com/service?REQUEST=GetCapabilities&Service=WMS&Version=1.3.0">http://osm-demo.wheregroup.com/service?REQUEST=GetCapabilities&Service=WMS&Version=1.3.0</a></small></li>
+        <li><small>TopPlus Open <a href="https://sgx.geodatenzentrum.de/wms_topplus_open?request=GetCapabilities&service=wms" target="_blank">https://sgx.geodatenzentrum.de/wms_topplus_open?request=GetCapabilities&service=wms</a></small></li>
+         <li><small>INSPIRE Geoportal<a href="https://inspire-geoportal.ec.europa.eu/" target="_blank">https://inspire-geoportal.ec.europa.eu/</a></small></li> 
+      <li><small>FOSS4G WMS <a href="https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities" target="_blank">https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities</a></small></li>
+
+
+      </ul>
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Exercise 10: Create a new Application in Mapbender</h2>
+  <p>    </p>
+    <ul> 
+        <li>Your application should start with the extent of Mostar</li>
+        <li>Copy Application mapbender_user and rename it to FOSS4G</li>
+        <li>Switch to Layout → map-Element and set SRS EPSG:4326</li>
+        <li>Modify MAX EXTENT to the whole world </br>lower left -180 -90 </br>upper right 180 90</li>
+        <li>Modify Start Extent Mostar </br>lower left 17.754261 43.324836</br>upper right 17.841727 43.361913</li>
+        <li>Modify the scales to: </br><small>100000000,50000000,10000000,5000000,1000000,500000,100000,50000,25000,10000,7500,5000,2500,1000</small> </li>
+      </ul>
+    </p>
+</section> 
+
+
+
+
+
+   
+
+
+<section>
+<h2>Exercise 11: Add Services to your application</h2>
+  <p>    </p>
+    <ul> 
+        <li>Your application should show your QGIS WMS and some other external WMS</li>
+        <li>Go to Tab Layerset</li>
+        <li>Add WMS via +</li>
+    </ul>
+  </p>
+</section> 
+<section>
+<h2>Metadata Catalog to find your data</h2>
+  <p>Goals</p>
+  <p>
+    <ul> 
+        <li>Your user should find your data</li>
+        <li>Provide a catalog for you data</li>
+        
+      </ul>
+    </p>
+</section> 
+
+<section>
+<h2>Provide Metadata for your data and Services</h2>
+    <p>
+    <ul> 
+        <li>Metadata should be provided & has to be up-to-date</li>
+        <li>OGC Catalogue Service Web (CSW) GeoNetwork, GeoNode, pycsw, Metador</li>
+        <li>for example in Germany: GDI-DE & 16 Catalogues for 16 provinces</li>
+        <li><a href="https://gdk.gdi-de.org/gdi-de/srv/eng/catalog.search#/home">https://gdk.gdi-de.org/gdi-de/srv/eng/catalog.search#/home</a></li>
+      </ul>
+    </p>
+</section> 
+<!--
+<section>
+<h2>Exercise 11: Search in the Bosnia-Herzegowina Metadata Catalog for a Service</h2>
+  <p>
+    <ul>
+
+      <li>Bosnia-Herzegowinan Geoportal<a href="tbd" target="_blank">tbd</a></li>
+    </ul>
+  </p>
+</section> 
+-->
+<section>
+<h2>Exercise 12: Add your new QGIS WMS to GeoNode or GeoNetwork</h2>
+    <ul> 
+        <li>Open GeoNode and login via admin/admin</li>
+        <li>Add a new Metadata entry for you WMS</li>
+        <li>Follow the quickstart: <small><a href="https://live.osgeo.org/en/quickstart/geonode_quickstart.html" target="_blank">https://live.osgeo.org/en/quickstart/geonode_quickstart.html</a></small></li>
+        
+      </ul>
+    </p>
+       <p>
+        <img src="img/foss4g2025/geonode.png" height="450">
+    </p>  
+</section> 
+
+<section>
+<h2>Wrap things up</h2>
+    <p>
+      <ul>
+        <li>Central data storage in a database offers lot of advantages</li>
+        <li>Data Sharing via Services is easy and supported by many programs</li>
+        <li>Offering ready-to-use applications covers the needs of many not advanced users</li>
+        <li>Metadata helps you to find the data you need
+        <li>Metadata should be up-to-date</li>
+        <li>A SDI is a profit for all involved parties</li>
+        
+      </ul>
+    </p>
+</section> 
+
+
+<section>
+<h2>FOSS4G Europe 2025 Mostar Bosnia-Herzegowina</h2>
+</br>
+    <p>We hope you enjoyed the workshop
+    </p>
+    <a href="https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/SS7REE/" target="_blank">https://talks.osgeo.org/foss4g-europe-2025-workshops/talk/SS7REE/</a>
+
+  <p>
+      <img src="img/foss4g2025/foss4g-europe-2025.png" height="100">
+  <p>    
+</section> 
+</div>
+        </div> 
+    </div>
+
+<script src="_static/js/jquery.min.js"></script>
+<script src="_static/lib/js/head.min.js"></script>
+<script src="_static/js/reveal.js"></script>
+
+    <script>
+
+
+      // change DOM for reveal.js
+      $("div.section h1").remove();
+      var content = $("div.section").html();
+      $("div.section").remove();
+      $("div.slides").html(content);
+
+      Reveal.initialize({
+        width: 960,
+        height: 700,
+
+        margin: 0.1,
+
+        minScale: 0.2,
+        maxScale: 1.0,
+
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        keyboard : true,
+        overview: true,
+        touch: true,
+        loop: false,
+        rtl: false,
+        fragments: true,
+
+        autoSlide: 0,
+        mouseWheel: false,
+        rollingLinks: true,
+        previewLinks: false,
+
+        transitionSpeed: "default",
+        backgroundTransition: "default",
+
+        slideNumber: true,
+        embedded: false,
+        autoSlideStoppable: true,
+        hideAddressBar: true,
+
+        parallaxBackgroundImage: "",
+        parallaxBackgroundSize: "",
+
+        focusBodyOnPageVisiblityChange: true,
+
+        viewDistance: 3,
+
+        transition: Reveal.getQueryHash().transition || "default",
+
+        
+
+        dependencies: [
+           { src: '_static/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+           { src: '_static/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: '_static/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+           { src: '_static/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+           { src: '_static/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+           { src: '_static/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+    
+  </body>
+</html>
