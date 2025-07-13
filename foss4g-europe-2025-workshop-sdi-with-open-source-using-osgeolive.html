@@ -54,7 +54,7 @@
           <!-- Footer center -->
           
           <div class="footC">
-            <footnote>SDI with OSGeoLive - FOSS4G Europe 2025 Mostar Bosnia-Herzegowina</footnote>
+            <footnote>SDI with OSGeoLive - FOSS4G Europe 2025 <br>Mostar Bosnia-Herzegovina</footnote>
             </div>
           </div>  
 
@@ -64,7 +64,7 @@
 <h3>Setting up a Spatial Data Infrastructure (SDI) with Open Source Software using OSGeoLive</h3>
 
     <p><small>Astrid Emde | Enock Seth Nyamador</small>
-    <small><a href="https://2025.europe.foss4g.org" title="FOSS4G Europe 2025 Mostar">FOSS4G Europe 2025 Mostar Bosnia-Herzegowina</a></small></p>
+    <small><a href="https://2025.europe.foss4g.org" title="FOSS4G Europe 2025 Mostar">FOSS4G Europe 2025 Mostar Bosnia-Herzegovina</a></small></p>
 <img src="img/foss4g2025/osgeolive_menu.png" height="450">
 </section>
 
@@ -170,7 +170,7 @@ scripts
     -->
     <p>
       <ul>  
-        <li>Exercise 1: Please assign Open Source Software to the components of a SDI. See <a href="https://live.osgeo.org" target="_blank">https://live.osgeo.org</a></li>
+        <li>Exercise 1: Please assign Open Source Software to the components of a SDI. See Section <b>Contents</b> at <a href="https://live.osgeo.org" target="_blank">https://live.osgeo.org</a></li>
       </ul>
     </p>
     <p>
@@ -264,7 +264,7 @@ First Goal: create your first data store
 
     <p>
       <ul>  
-        <li><a href="https://live.osgeo.org/en/overview/overview.html" target="_blank">https://live.osgeo.org/en/overview/overview.html</a></li>
+        <li><a href="https://live.osgeo.org/en/overview/postgis_overview.html" target="_blank">https://live.osgeo.org/en/overview/postgis_overview.html</a></li>
       </ul>
     </p>
 </section> 
@@ -317,8 +317,8 @@ First Goal: create your first data store
     <p>
       <ul>  
         <li>Find the data at /home/user/data/natural_earth2/ne_10m_admin_1_states_provinces_shp.shp</li>
-        <li>Provinces of Bosnia-Herzegowina</li>
-        <li>Filter show only admin = 'Bosnia-Herzegowina'</li>
+        <li>Provinces of Bosnia and Herzegovina</li>
+        <li>Filter show only admin = 'Bosnia and Herzegovina'</li>
         <li>Label with column <b>name</b></li>
         
       </ul>
@@ -374,8 +374,8 @@ First Goal: create your first data store
 <h2>Exercise 4: Import & Export</h2>
     <p>
       <ul>  
-        <li>Import provinces from Natural Earth data (only Bosnia-Herzegowina)</li>
-        <li>Import populated places from Natural Earth data (only Bosnia-Herzegowina)</li>
+        <li>Import provinces from Natural Earth data (only Bosnia and Herzegovina)</li>
+        <li>Import populated places from Natural Earth data (only Bosnia and Herzegovina)</li>
         <li>Add the table from your database to your QGIS project (drag & drop) 
         <li>Export: Save populated places as geopackage via DB Manager or via QGIS save as ...</li>
         
@@ -475,7 +475,7 @@ GRANT USAGE ON SEQUENCE countries_gid_seq TO workshop_writer;
 
 -- change to user wilma
 Select * from countries;
-Update countries set name = 'TEST' WHERE name = 'Bosnia-Herzegowina';
+Update countries set name = 'TEST' WHERE name = 'Bosnia and Herzegovina';
          </code></pre>
     </p>
 </section> 
@@ -617,6 +617,8 @@ scripts
         <li><small>OSM WhereGroup <a href="http://osm-demo.wheregroup.com/service?REQUEST=GetCapabilities&Service=WMS&Version=1.3.0">http://osm-demo.wheregroup.com/service?REQUEST=GetCapabilities&Service=WMS&Version=1.3.0</a></small></li>
         <li><small>TopPlus Open <a href="https://sgx.geodatenzentrum.de/wms_topplus_open?request=GetCapabilities&service=wms" target="_blank">https://sgx.geodatenzentrum.de/wms_topplus_open?request=GetCapabilities&service=wms</a></small></li>
       <li><small>FOSS4G WMS<a href="https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities" target="_blank">https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities</a></small></li>
+
+            <li><small>WMS IGME5000 Geological Map <a href="https://services.bgr.de/wms/geologie/igme5000/?REQUEST=GetCapabilities&VERSION=1.3.0&SERVICE=WMS" target="_blank">https://services.bgr.de/wms/geologie/igme5000/?REQUEST=GetCapabilities&VERSION=1.3.0&SERVICE=WMS</a></small></li>      
       </ul>
     </p>
 </section> 
@@ -752,6 +754,7 @@ var layerControl = L.control.layers(baseMaps).addTo(map);
       <li><small>FOSS4G WMS <a href="https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities" target="_blank">https://wms.wheregroup.com/cgi-bin/foss4g.xml?SERVICE=WMS&VERSION=1.3.0&REQUEST=getCapabilities</a></small></li>
 
 
+            <li><small>WMS IGME5000 Geological Map <a href="https://services.bgr.de/wms/geologie/igme5000/?REQUEST=GetCapabilities&VERSION=1.3.0&SERVICE=WMS" target="_blank">https://services.bgr.de/wms/geologie/igme5000/?REQUEST=GetCapabilities&VERSION=1.3.0&SERVICE=WMS</a></small></li>     
       </ul>
       </ul>
     </p>
@@ -770,12 +773,6 @@ var layerControl = L.control.layers(baseMaps).addTo(map);
       </ul>
     </p>
 </section> 
-
-
-
-
-
-   
 
 
 <section>
@@ -813,11 +810,11 @@ var layerControl = L.control.layers(baseMaps).addTo(map);
 </section> 
 <!--
 <section>
-<h2>Exercise 11: Search in the Bosnia-Herzegowina Metadata Catalog for a Service</h2>
+<h2>Exercise 11: Search in the Bosnia and Herzegovina Metadata Catalog for a Service</h2>
   <p>
     <ul>
 
-      <li>Bosnia-Herzegowinan Geoportal<a href="tbd" target="_blank">tbd</a></li>
+      <li>Bosnia and Herzegovina Geoportal<a href="tbd" target="_blank">tbd</a></li>
     </ul>
   </p>
 </section> 
@@ -853,7 +850,7 @@ var layerControl = L.control.layers(baseMaps).addTo(map);
 
 
 <section>
-<h2>FOSS4G Europe 2025 Mostar Bosnia-Herzegowina</h2>
+<h2>FOSS4G Europe 2025 Mostar Bosnia-Herzegovina</h2>
 </br>
     <p>We hope you enjoyed the workshop
     </p>
